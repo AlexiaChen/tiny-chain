@@ -2,4 +2,11 @@ set(sources
 main.cpp
 )
 
-add_executable(tinychain ${sources})
+set(crypto_src
+crypto/sha256.h
+crypto/sha256.cpp
+crypto/crypto.h
+crypto/crypto.cpp
+)
+
+add_executable(tinychain ${sources} ${crypto_src})
