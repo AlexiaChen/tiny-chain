@@ -16,4 +16,9 @@ void Crypto::CryptoHash(const std::vector<uint8_t>& source, std::vector<uint8_t>
     std::copy_n(buffer, SHA256_BLOCK_SIZE, std::back_inserter(hash));
 }
 
+void Crypto::CryptoHash(const std::string& source, std::vector<uint8_t>& hash)
+{
+    Crypto::CryptoHash(std::vector<uint8_t>(source.begin(), source.end()), hash);
+}
+
 }

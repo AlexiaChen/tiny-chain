@@ -21,11 +21,11 @@ BOOST_AUTO_TEST_CASE(sha256_test)
 	                                 0xf1,0x80,0x9a,0x48,0xa4,0x97,0x20,0x0e,0x04,0x6d,0x39,0xcc,0xc7,0x11,0x2c,0xd0};
 
     std::vector<uint8_t> hash;
-    crypto::Crypto::CryptoHash(std::vector<uint8_t>(text1.begin(), text1.end()), hash);
+    crypto::Crypto::CryptoHash(text1, hash);
     BOOST_CHECK(hash == hash1);
-    crypto::Crypto::CryptoHash(std::vector<uint8_t>(text2.begin(), text2.end()), hash);
+    crypto::Crypto::CryptoHash(text2, hash);
     BOOST_CHECK(hash == hash2);
-    crypto::Crypto::CryptoHash(std::vector<uint8_t>(text3.begin(), text3.end()), hash);
+    crypto::Crypto::CryptoHash(text3, hash);
     BOOST_CHECK(hash != hash3);
 }
 
