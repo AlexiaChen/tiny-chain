@@ -1,5 +1,6 @@
 #include "crypto.h"
 #include "sha256.h"
+#include "base58.h"
 
 #include <algorithm>
 
@@ -19,6 +20,17 @@ void Crypto::CryptoHash(const std::vector<uint8_t>& source, std::vector<uint8_t>
 void Crypto::CryptoHash(const std::string& source, std::vector<uint8_t>& hash)
 {
     Crypto::CryptoHash(std::vector<uint8_t>(source.begin(), source.end()), hash);
+}
+
+
+void Crypto::CryptoEncodeBase58(const std::vector<uint8_t>& source, std::string& base58)
+{
+    base58 = EncodeBase58(std::vector<unsigned char>(source.begin(), source.end()));
+}
+
+bool Crypto::CryptoDecodeBase58(const std::string& base58, std::vector<uint8_t>& source)
+{
+    return DecodeBase58(base58, source);
 }
 
 }

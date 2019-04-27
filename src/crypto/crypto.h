@@ -12,6 +12,9 @@ class Crypto
 public:
     static void CryptoHash(const std::vector<uint8_t>& source, std::vector<uint8_t>& hash);
     static void CryptoHash(const std::string& source, std::vector<uint8_t>& hash);
+
+    static void CryptoEncodeBase58(const std::vector<uint8_t>& source, std::string& base58);
+    static bool CryptoDecodeBase58(const std::string& base58, std::vector<uint8_t>& source);
 };
 
 class uint256
