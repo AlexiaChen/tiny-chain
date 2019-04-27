@@ -29,6 +29,20 @@ BOOST_AUTO_TEST_CASE(sha256_test)
     BOOST_CHECK(hash != hash3);
 }
 
+BOOST_AUTO_TEST_CASE(base58_test)
+{
+    std::string text("hello world");
+    std::string text_base58("StV1DL6CwTryKyV"); // python base58 module generate result
+    std::string base58;
+    crypto::Crypto::CryptoEncodeBase58(std::vector<uint8_t>(text.begin(), text.end()),base58);
+    BOOST_CHECK(base58 == text_base58);
+    std::vector<uint8_t> bytes;
+    bool isSuccess = crypto::Crypto::CryptoDecodeBase58(text_base58, bytes);
+    BOOST_CHECK(isSuccess);
+    std::string decoded_str(bytes.begin(), bytes.end());
+    BOOST_CHECK(decoded_str == text);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
 
 #endif

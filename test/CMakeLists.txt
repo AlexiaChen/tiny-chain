@@ -1,6 +1,7 @@
 set(dep_src
 ../src/crypto/crypto.h ../src/crypto/crypto.cpp
 ../src/crypto/sha256.h ../src/crypto/sha256.cpp
+../src/crypto/base58.h ../src/crypto/base58.cpp
 )
 
 set(sources
